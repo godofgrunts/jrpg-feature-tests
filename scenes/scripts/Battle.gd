@@ -3,7 +3,7 @@ extends Node2D
 onready var tween = $Tween
 
 func _ready():
-	BattleSignals.connect("attacked", self, "_on_attacked_signal")
+	assert(BattleSignals.connect("attacked", self, "_on_attacked_signal") == 0)
 	
 func _on_attacked_signal(i,j):
 	var k = find_node(i)

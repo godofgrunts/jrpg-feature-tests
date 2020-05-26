@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/cursor.png" type="Texture" id=1]
+[ext_resource path="res://assets/controller-buttons/ps4/PS4_Circle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/UI/scripts/BattleMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/controller-buttons/ps4/PS4_Square.png" type="Texture" id=3]
+[ext_resource path="res://assets/controller-buttons/ps4/PS4_Cross.png" type="Texture" id=4]
+[ext_resource path="res://shaders/button_press.shader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/time_factor = 1.0
+shader_param/amplitude = Vector2( 10, 5 )
 
 [node name="BattleMenu" type="MarginContainer"]
 anchor_top = 1.0
@@ -31,19 +39,23 @@ rect_min_size = Vector2( 80, 0 )
 margin_right = 80.0
 margin_bottom = 200.0
 
-[node name="AttackArrow" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="AttackButton" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+material = SubResource( 1 )
 position = Vector2( 0, 2.26413 )
-texture = ExtResource( 1 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 4 )
 centered = false
 
-[node name="MagicArrow" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MagicButton" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 position = Vector2( 0, 67.3194 )
+scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="ItemArrow" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ItemButton" type="Sprite" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 position = Vector2( 0, 132.001 )
-texture = ExtResource( 1 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
