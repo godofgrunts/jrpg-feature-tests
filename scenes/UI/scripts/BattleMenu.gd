@@ -1,18 +1,15 @@
-extends MarginContainer
+extends Position2D
 
-var cursor_pos = 0
-var atk_arrow
-var mag_arrow
-var itm_arrow
-
-enum cursor {ATTACK, MAGIC, ITEM}
+onready var tween = $Tween
+var parent
 
 func _ready():
-	atk_arrow = find_node("AttackButton")
-	mag_arrow = find_node("MagicButton")
-	itm_arrow = find_node("ItemButton")
+	if get_parent():
+		parent = get_parent()
+	
 	
 func _input(event):
+	var x = 0
 	var character = "Player1"
 	var victim = "BadGuy"
 	
@@ -21,4 +18,6 @@ func _input(event):
 	if Input.is_action_just_pressed("battle_item"):
 		BattleSignals.emit_signal("attacked", character, victim)
 	if Input.is_action_just_pressed("battle_magic"):
+		BattleSignals.emit_signal("attacked", character, victim)
+	if Input.is_action_just_pressed("battle_menu"):
 		BattleSignals.emit_signal("attacked", character, victim)
