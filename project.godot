@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Position2D",
+"class": "Battler",
+"language": "GDScript",
+"path": "res://scripts/Battler.gd"
+}, {
+"base": "Resource",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://scripts/Skills.gd"
+}, {
+"base": "Resource",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://scripts/Stats.gd"
+} ]
 _global_script_class_icons={
-
+"Battler": "",
+"Skill": "",
+"Stats": ""
 }
 
 [application]
@@ -22,7 +39,6 @@ config/icon="res://icon.png"
 [autoload]
 
 BattleSignals="*res://scripts/BattleSignals.gd"
-TurnOrder="*res://scripts/TurnOrder.gd"
 
 [input]
 
