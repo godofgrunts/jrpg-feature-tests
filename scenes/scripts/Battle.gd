@@ -12,6 +12,9 @@ var menu_button
 func _ready():
 	assert(BattleSignals.connect("attacked", self, "_on_attacked_signal") == 0)
 	position_menu($Player1)
+	for child in get_children():
+		if child is Position2D:
+			TurnOrder.combatants.push_back(child.name)
 	
 func position_menu(character):
 	character.add_child(battle_menu)
@@ -50,6 +53,7 @@ func _on_attacked_signal(i,j):
 
 
 func jump_attack(i,j):
+	disable_input(true)
 	var start_pos = i.position
 	var end_pos = j.position
 	var mid_pos = abs(start_pos.x - end_pos.x)
@@ -79,4 +83,7 @@ func jump_attack(i,j):
 	menu_button.show()
 	magic_button.show()
 	
-	set_process_input(true)
+	disable_input(false)
+	
+func disable_input(flag):
+	get_tree().get_root().set_disable_input(flag)

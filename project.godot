@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 BattleSignals="*res://scripts/BattleSignals.gd"
+TurnOrder="*res://scripts/TurnOrder.gd"
 
 [input]
 
